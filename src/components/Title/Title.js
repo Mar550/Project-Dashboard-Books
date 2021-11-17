@@ -1,11 +1,14 @@
 import React from 'react';
-import "bootstrap/dist/css/bootstrap.min.css"
+import classes from './title.module.css';
+
+const Title = (props) => {
 
 
-function Title() {
-    return (
-        <h1 className ='maintitle' > Admin Dashboard Books </h1>
-    )
+    const myClass = `${classes.heading}`;
+    return(
+        <h1 className={myClass}>{props.value}</h1>
+    );
+
 }
 
 export default Title;
