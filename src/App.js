@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import { dataBook } from './helpers/constant';
 import Book from './containers/Book/Book';
-import Title from './components/Title/Title';
-
 
 //Bouton générique
 
@@ -17,10 +15,12 @@ const App = () => {
   
     <h1 className="maintitle"> Admin Dashboard Books</h1>  
     <Book/>
+    
 
 </>
   );
 }
+
 
 export default App;
 

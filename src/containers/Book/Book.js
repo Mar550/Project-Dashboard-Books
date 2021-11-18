@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import App from '../../App'
 import { dataBook } from '../../helpers/constant'
+import Button from '../../components/Button/Button'
 
 
 const Book  = () => {
@@ -12,6 +13,10 @@ const Book  = () => {
     nbpages: '',
     category: '',
   })
+
+  const [toggle,setToggle] = useState(false)
+
+  const [buttonValue,setButtonValue] = useState()
   
   const clickCreateForm = (e) => {
     e.preventDefault();
@@ -39,6 +44,18 @@ const Book  = () => {
     const newItems = [...items, newItem];
     setItems(newItems);
   }
+
+  const toggleForm = () => {
+    
+    if(toggle === true){
+        setToggle(false)
+    }
+    else{
+      setToggle(true)
+
+    }
+  }
+  
     return (
         <>
             <div>
@@ -62,14 +79,24 @@ const Book  = () => {
                         <td> {item.author} </td>
                         <td> {item.category} </td>
                         <td> {item.nbpages} </td>
-                    </tr>
+                        </tr>
                     ))} 
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <form onSubmit={clickSubmitForm}>
+         
+
+  
+   <div className="d-grid col-2 mx-auto">
+    <button className = "btn btn-primary" onClick={toggleForm} type="button"> { toggle===true ? <span>CLOSE</span> : <span>ADD BOOK</span>} </button> 
+  </div> 
+{
+  toggle ? 
+
+   <form onSubmit={clickSubmitForm}>
+     
   <div className="divForm d-grid col-8 mx-auto ">
 
     <div className="d-grid col-8 mx-auto">
@@ -111,7 +138,7 @@ const Book  = () => {
     class="form-control" 
     id="exampleFormControlInput1" 
     required="required"
-    placeholder="o"
+    placeholder="Pages number"
     onChange={clickCreateForm} />
   </div>
 </div>
@@ -136,16 +163,33 @@ const Book  = () => {
 
 
 <div className="d-grid col-3 mx-auto"> 
-<button className= "btn btn-primary"  type="submit" value="Create"> CREATE </button>
+<Button class= "btn btn-primary" type="submit" value="CREATE"/>
+
 </div>
 
 </div>
+
+  
 </form>
+
+
+: null
+}
+
+
     </>
     )
+    
 }
 
 
 
 
 export default Book
+
+
+
+
+
+
+

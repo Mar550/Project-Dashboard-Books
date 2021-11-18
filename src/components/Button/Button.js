@@ -1,8 +1,19 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 
+ const  Button = (props) => {
+    return (
+        <div>
+          <button className={props.class} onClick={props.click} type={props.type}>{props.value}</button>  
+        </div>
+    )
+}
+
+export default Button;
 
 
+
+/*
 const  Button = (props) => {
     const createClick = (e) => {
         console.log("Form validated")
@@ -28,3 +39,5 @@ const  Button = (props) => {
 
 export default Button;
 
+
+*/
